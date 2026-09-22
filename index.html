@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NUBOX | Un mundo de opciones</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f7f7;
+  color:#242424;
+}
+
+.top{
+  background:#162b55;
+  color:white;
+  text-align:center;
+  padding:9px;
+  font-size:14px;
+}
+
+header{
+  background:white;
+  padding:18px 5%;
+  display:flex;
+  align-items:center;
+  gap:30px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 10px #00000010;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:#162b55;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:#f39a3c;
+}
+
+.search{
+  flex:1;
+}
+
+.search input{
+  width:100%;
+  padding:13px 18px;
+  border:1px solid #ddd;
+  border-radius:30px;
+  font-size:15px;
+}
+
+.cart{
+  cursor:pointer;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+nav{
+  background:white;
+  padding:12px 5%;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  border-top:1px solid #eee;
+  flex-wrap:wrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:420px;
+  background:
+  linear-gradient(90deg,#eef3fa 0%,#fff6eb 100%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:55px 8%;
+  gap:40px;
+}
+
+.hero-text{
+  max-width:600px;
+}
+
+.hero small{
+  color:#e78325;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.hero h1{
+  font-size:54px;
+  color:#162b55;
+  line-height:1.05;
+  margin:12px 0 15px;
+}
+
+.hero h1 span{
+  color:#ef9135;
+}
+
+.hero p{
+  font-size:20px;
+  color:#555;
+  line-height:1.5;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  background:#162b55;
+  color:white;
+  padding:14px 25px;
+  border-radius:8px;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.hero-box{
+  width:380px;
+  height:270px;
+  background:white;
+  border-radius:28px;
+  box-shadow:0 20px 50px #162b5520;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:100px;
+}
+
+section{
+  padding:55px 6%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  color:#162b55;
+  font-size:32px;
+}
+
+.section-title p{
+  color:#777;
+  margin-top:8px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:15px;
+}
+
+.category{
+  background:white;
+  padding:25px 10px;
+  text-align:center;
+  border-radius:15px;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 4px 15px #00000008;
+}
+
+.category:hover{
+  transform:translateY(-5px);
+}
+
+.category .icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.category strong{
+  display:block;
+  color:#162b55;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.product{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 20px #0000000c;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+}
+
+.product-image{
+  height:190px;
+  background:#f1f3f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:75px;
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product-info small{
+  color:#999;
+}
+
+.product-info h3{
+  margin:8px 0;
+  color:#333;
+}
+
+.price{
+  color:#162b55;
+  font-size:23px;
+  font-weight:bold;
+}
+
+.old-price{
+  color:#aaa;
+  text-decoration:line-through;
+  font-size:14px;
+  margin-left:6px;
+}
+
+.buy{
+  border:0;
+  background:#ef9135;
+  color:white;
+  padding:11px 15px;
+  width:100%;
+  border-radius:8px;
+  margin-top:15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.family{
+  margin:20px 6% 55px;
+  padding:50px;
+  background:#162b55;
+  color:white;
+  border-radius:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.family h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.family p{
+  max-width:650px;
+  color:#dce5f6;
+  line-height:1.5;
+}
+
+.family-icon{
+  font-size:90px;
+}
+
+footer{
+  background:#101e3b;
+  color:white;
+  padding:45px 6%;
+  text-align:center;
+}
+
+footer .brand{
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+#notice{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#162b55;
+  color:white;
+  padding:15px 22px;
+  border-radius:10px;
+  display:none;
+  box-shadow:0 5px 25px #0003;
+  z-index:30;
+}
+
+@media(max-width:900px){
+
+  header{
+    flex-wrap:wrap;
+  }
+
+  .search{
+    order:3;
+    flex-basis:100%;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero-box{
+    width:100%;
+    max-width:380px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .family{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:550px){
+
+  nav{
+    gap:15px;
+    font-size:14px;
+  }
+
+  .hero{
+    padding:45px 6%;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  🚚 Despachos a todo Chile · Compra fácil, segura y conveniente
+</div>
+
+<header>
+
+  <div class="logo">
+    NU<span>BOX</span>
+  </div>
+
+  <div class="search">
+    <input
+      type="text"
+      id="search"
+      placeholder="¿Qué estás buscando hoy?"
+      onkeyup="searchProducts()"
+    >
+  </div>
+
+  <div class="cart">
+    🛒 Mi carrito (<span id="cartCount">0</span>)
+  </div>
+
+</header>
+
+<nav>
+  <a href="#categories">Categorías</a>
+  <a href="#offers">Ofertas</a>
+  <a href="#home">Hogar</a>
+  <a href="#family">Familia</a>
+  <a href="#tech">Tecnología</a>
+  <a href="#contact">Ayuda</a>
+</nav>
+
+
+<div class="hero">
+
+  <div class="hero-text">
+
+    <small>TODO LO QUE NECESITAS, EN UN SOLO LUGAR</small>
+
+    <h1>
+      NUBOX<br>
+      <span>Un mundo de opciones</span>
+    </h1>
+
+    <p>
+      Productos para tu hogar, tu familia y tu día a día.
+      Descubre nuevas opciones a buenos precios,
+      seleccionadas para hacer tu vida más fácil.
+    </p>
+
+    <a class="btn" href="#offers">
+      Descubrir productos
+    </a>
+
+  </div>
+
+  <div class="hero-box">
+    🏠
+  </div>
+
+</div>
+
+
+<section id="categories">
+
+  <div class="section-title">
+    <h2>Encuentra lo que necesitas</h2>
+    <p>Un mundo de categorías para todos</p>
+  </div>
+
+  <div class="categories">
+
+    <div class="category">
+      <div class="icon">🏠</div>
+      <strong>Hogar</strong>
+    </div>
+
+    <div class="category">
+      <div class="icon">🍳</div>
+      <strong>Cocina</strong>
+    </div>
+
+    <div class="category">
+      <div class="icon">🧸</div>
+      <strong>Niños</strong>
+    </div>
+
+    <div class="category">
+      <div class="icon">💆</div>
+      <strong>Bienestar</strong>
+    </div>
+
+    <div class="category">
+      <div class="icon">🐶</div>
+      <strong>Mascotas</strong>
+    </div>
+
+    <div class="category">
+      <div class="icon">💻</div>
+      <strong>Tecnología</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="offers">
+
+  <div class="section-title">
+    <h2>Elegidos para ti</h2>
+    <p>Productos útiles para distintos momentos de tu día</p>
+  </div>
+
+  <div class="products" id="products">
+
+    <div class="product" data-name="freidora cocina hogar">
+
+      <div class="product-image">
+        🍟
+      </div>
+
+      <div class="product-info">
+
+        <small>Cocina</small>
+
+        <h3>Freidora de aire familiar</h3>
+
+        <span class="price">$49.990</span>
+        <span class="old-price">$69.990</span>
+
+        <button class="buy" onclick="addCart('Freidora de aire')">
+          Agregar al carrito
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-name="organizador hogar">
+
+      <div class="product-image">
+        🧺
+      </div>
+
+      <div class="product-info">
+
+        <small>Hogar</small>
+
+        <h3>Organizador multifuncional</h3>
+
+        <span class="price">$19.990</span>
+
+        <button class="buy" onclick="addCart('Organizador')">
+          Agregar al carrito
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-name="audifonos tecnologia">
+
+      <div class="product-image">
+        🎧
+      </div>
+
+      <div class="product-info">
+
+        <small>Tecnología</small>
+
+        <h3>Audífonos inalámbricos</h3>
+
+        <span class="price">$24.990</span>
+        <span class="old-price">$34.990</span>
+
+        <button class="buy" onclick="addCart('Audífonos')">
+          Agregar al carrito
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-name="mascotas cama perro gato">
+
+      <div class="product-image">
+        🐾
+      </div>
+
+      <div class="product-info">
+
+        <small>Mascotas</small>
+
+        <h3>Cama confort para mascotas</h3>
+
+        <span class="price">$21.990</span>
+
+        <button class="buy" onclick="addCart('Cama para mascotas')">
+          Agregar al carrito
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="family" id="family">
+
+  <div>
+
+    <h2>Hay algo para cada uno</h2>
+
+    <p>
+      En NUBOX queremos reunir productos útiles, entretenidos
+      y accesibles para todos los integrantes de la familia.
+      Porque encontrar lo que buscas debería ser simple.
+    </p>
+
+  </div>
+
+  <div class="family-icon">
+    👨‍👩‍👧‍👦
+  </div>
+
+</div>
+
+
+<footer id="contact">
+
+  <div class="brand">
+    NUBOX
+  </div>
+
+  <p>Un mundo de opciones</p>
+
+  <br>
+
+  <small>
+    Tienda online · Chile
+  </small>
+
+</footer>
+
+
+<div id="notice">
+  Producto agregado ✓
+</div>
+
+
+<script>
+
+let cart = 0;
+
+function addCart(product){
+
+  cart++;
+
+  document.getElementById("cartCount").innerText = cart;
+
+  const notice = document.getElementById("notice");
+
+  notice.innerText = product + " agregado al carrito ✓";
+
+  notice.style.display = "block";
+
+  setTimeout(function(){
+    notice.style.display = "none";
+  },2000);
+
+}
+
+
+function searchProducts(){
+
+  const search =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+  const products =
+    document.querySelectorAll(".product");
+
+  products.forEach(function(product){
+
+    const name =
+      product
+      .getAttribute("data-name")
+      .toLowerCase();
+
+    if(name.includes(search)){
+      product.style.display = "block";
+    }else{
+      product.style.display = "none";
+    }
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
