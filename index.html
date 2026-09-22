@@ -2,694 +2,731 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NUBOX | Un mundo de opciones</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nubox | Un mundo de opciones</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+:root{
+  --blue:#0756a0;
+  --blue2:#087af1;
+  --dark:#073663;
+  --light:#f4f8fc;
+  --cream:#fbf5ef;
+  --text:#17212b;
 }
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7f7f7;
-  color:#242424;
-}
-
-.top{
-  background:#162b55;
-  color:white;
-  text-align:center;
-  padding:9px;
-  font-size:14px;
-}
-
-header{
+  color:var(--text);
   background:white;
-  padding:18px 5%;
-  display:flex;
-  align-items:center;
-  gap:30px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  box-shadow:0 2px 10px #00000010;
 }
+button,input{font:inherit}
+a{text-decoration:none;color:inherit}
 
-.logo{
-  font-size:30px;
-  font-weight:900;
-  color:#162b55;
-  letter-spacing:1px;
-}
-
-.logo span{
-  color:#f39a3c;
-}
-
-.search{
-  flex:1;
-}
-
-.search input{
-  width:100%;
-  padding:13px 18px;
-  border:1px solid #ddd;
-  border-radius:30px;
-  font-size:15px;
-}
-
-.cart{
-  cursor:pointer;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-nav{
-  background:white;
-  padding:12px 5%;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  border-top:1px solid #eee;
-  flex-wrap:wrap;
-}
-
-nav a{
-  text-decoration:none;
-  color:#333;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.hero{
-  min-height:420px;
-  background:
-  linear-gradient(90deg,#eef3fa 0%,#fff6eb 100%);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:55px 8%;
-  gap:40px;
-}
-
-.hero-text{
-  max-width:600px;
-}
-
-.hero small{
-  color:#e78325;
-  font-weight:bold;
-  font-size:15px;
-}
-
-.hero h1{
-  font-size:54px;
-  color:#162b55;
-  line-height:1.05;
-  margin:12px 0 15px;
-}
-
-.hero h1 span{
-  color:#ef9135;
-}
-
-.hero p{
-  font-size:20px;
-  color:#555;
-  line-height:1.5;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  background:#162b55;
-  color:white;
-  padding:14px 25px;
-  border-radius:8px;
-  cursor:pointer;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.hero-box{
-  width:380px;
-  height:270px;
-  background:white;
-  border-radius:28px;
-  box-shadow:0 20px 50px #162b5520;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:100px;
-}
-
-section{
-  padding:55px 6%;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.section-title h2{
-  color:#162b55;
-  font-size:32px;
-}
-
-.section-title p{
-  color:#777;
-  margin-top:8px;
-}
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:15px;
-}
-
-.category{
-  background:white;
-  padding:25px 10px;
-  text-align:center;
-  border-radius:15px;
-  cursor:pointer;
-  transition:.2s;
-  box-shadow:0 4px 15px #00000008;
-}
-
-.category:hover{
-  transform:translateY(-5px);
-}
-
-.category .icon{
-  font-size:38px;
-  margin-bottom:10px;
-}
-
-.category strong{
-  display:block;
-  color:#162b55;
-}
-
-.products{
+/* TOP */
+.topbar{
+  background:#064b80;
+  color:#fff;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-
-.product{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 5px 20px #0000000c;
-  transition:.2s;
-}
-
-.product:hover{
-  transform:translateY(-4px);
-}
-
-.product-image{
-  height:190px;
-  background:#f1f3f6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:75px;
-}
-
-.product-info{
-  padding:20px;
-}
-
-.product-info small{
-  color:#999;
-}
-
-.product-info h3{
-  margin:8px 0;
-  color:#333;
-}
-
-.price{
-  color:#162b55;
-  font-size:23px;
-  font-weight:bold;
-}
-
-.old-price{
-  color:#aaa;
-  text-decoration:line-through;
-  font-size:14px;
-  margin-left:6px;
-}
-
-.buy{
-  border:0;
-  background:#ef9135;
-  color:white;
-  padding:11px 15px;
-  width:100%;
-  border-radius:8px;
-  margin-top:15px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.family{
-  margin:20px 6% 55px;
-  padding:50px;
-  background:#162b55;
-  color:white;
-  border-radius:25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:30px;
-}
-
-.family h2{
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.family p{
-  max-width:650px;
-  color:#dce5f6;
-  line-height:1.5;
-}
-
-.family-icon{
-  font-size:90px;
-}
-
-footer{
-  background:#101e3b;
-  color:white;
-  padding:45px 6%;
+  padding:8px 6%;
+  font-size:12px;
   text-align:center;
 }
 
-footer .brand{
-  font-size:26px;
-  font-weight:bold;
-  margin-bottom:10px;
+/* HEADER */
+header{
+  background:#fff;
+  padding:17px 6% 8px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  box-shadow:0 2px 12px #0000000d;
+}
+.header-main{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.logo{
+  min-width:170px;
+  color:var(--blue);
+}
+.logo-main{
+  font-size:43px;
+  font-weight:900;
+  letter-spacing:-4px;
+  line-height:.85;
+}
+.logo-main span{color:#1284ed}
+.tagline{
+  font-size:13px;
+  letter-spacing:.4px;
+  margin-top:7px;
+  color:#222;
+}
+.search{
+  flex:1;
+  position:relative;
+}
+.search input{
+  width:100%;
+  border:0;
+  background:#f1f3f6;
+  padding:15px 20px 15px 45px;
+  border-radius:9px;
+  outline:none;
+}
+.search:before{
+  content:"⌕";
+  position:absolute;
+  left:17px;
+  top:8px;
+  font-size:27px;
+}
+.actions{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  text-align:center;
+  font-size:11px;
+}
+.action{
+  cursor:pointer;
+  min-width:55px;
+}
+.action-icon{
+  font-size:27px;
+  display:block;
+  margin-bottom:3px;
+}
+.cart-icon{position:relative}
+.count{
+  position:absolute;
+  background:#1686ef;
+  color:#fff;
+  width:19px;
+  height:19px;
+  line-height:19px;
+  border-radius:50%;
+  font-size:11px;
+  top:-8px;
+  right:4px;
 }
 
-#notice{
+/* NAV */
+nav{
+  display:flex;
+  gap:30px;
+  padding:14px 0 6px;
+  font-size:13px;
+  align-items:center;
+}
+nav a:hover{color:var(--blue2)}
+.offer{color:#087af1;font-weight:bold}
+
+/* HERO */
+.hero{
+  min-height:390px;
+  display:grid;
+  grid-template-columns:44% 56%;
+  background:linear-gradient(100deg,#faf4ee,#f7eee6);
+  overflow:hidden;
+}
+.hero-copy{
+  padding:50px 8% 40px 12%;
+  position:relative;
+}
+.hero-copy h1{
+  color:var(--blue);
+  font-size:65px;
+  letter-spacing:-5px;
+  margin:0;
+  line-height:.9;
+}
+.hero-script{
+  font-family:"Brush Script MT","Segoe Script",cursive;
+  font-size:31px;
+  transform:rotate(-4deg);
+  display:inline-block;
+  margin:13px 0 25px;
+  border-bottom:3px solid #1386ef;
+  padding-bottom:7px;
+}
+.hero-copy h2{
+  font-size:22px;
+  font-weight:500;
+  line-height:1.35;
+  max-width:340px;
+}
+.hero-benefits{
+  display:flex;
+  gap:20px;
+  margin:27px 0;
+  font-size:11px;
+}
+.hero-benefits div{
+  text-align:center;
+  max-width:75px;
+}
+.hero-benefits b{
+  display:block;
+  font-size:23px;
+  margin-bottom:5px;
+}
+.primary{
+  border:0;
+  background:#087af1;
+  color:#fff;
+  padding:14px 25px;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.primary:hover{background:#0569d0}
+
+.hero-photo{
+  min-height:390px;
+  background:
+    linear-gradient(90deg,rgba(250,244,238,.25),rgba(250,244,238,0)),
+    url("https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1200&q=85")
+    center/cover no-repeat;
+  position:relative;
+}
+.hero-note{
+  position:absolute;
+  right:6%;
+  top:30px;
+  font-family:"Segoe Script",cursive;
+  font-size:20px;
+  width:145px;
+  text-align:center;
+  transform:rotate(-7deg);
+}
+
+/* CATEGORIES */
+.wrap{
+  width:min(1180px,92%);
+  margin:auto;
+}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  gap:18px;
+  padding:25px 0;
+}
+.cat{text-align:center;cursor:pointer;font-size:12px}
+.cat-circle{
+  width:75px;
+  height:75px;
+  margin:auto auto 8px;
+  background:#f1f3f5;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:37px;
+  transition:.2s;
+}
+.cat:hover .cat-circle{
+  transform:translateY(-4px);
+  box-shadow:0 6px 15px #0002;
+}
+.cat:last-child .cat-circle{
+  background:#1686ef;
+  color:white;
+  font-size:35px;
+}
+
+/* PROMOS */
+.promos{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin:4px 0 25px;
+}
+.promo{
+  height:145px;
+  border-radius:5px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+}
+.promo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.02));
+}
+.promo-content{
+  position:absolute;
+  z-index:2;
+  color:white;
+  padding:25px;
+}
+.promo h3{
+  margin:0;
+  font-size:23px;
+}
+.promo p{
+  margin:4px 0 14px;
+}
+.promo button{
+  background:white;
+  border:0;
+  padding:8px 14px;
+  border-radius:3px;
+  cursor:pointer;
+}
+.home-promo{
+  background-image:url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80");
+}
+.fashion-promo{
+  background-image:url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80");
+}
+.wellness-promo{
+  background-image:url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80");
+}
+
+/* PRODUCTS */
+.title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.title-row h2{font-size:22px}
+.title-row a{font-size:12px}
+.products{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-bottom:32px;
+}
+.product{
+  border:1px solid #eef0f3;
+  border-radius:4px;
+  overflow:hidden;
+  position:relative;
+  background:#fff;
+  transition:.2s;
+}
+.product:hover{
+  box-shadow:0 8px 22px #00000015;
+  transform:translateY(-3px);
+}
+.heart{
+  position:absolute;
+  right:10px;
+  top:8px;
+  font-size:20px;
+  cursor:pointer;
+  z-index:3;
+}
+.product-image{
+  height:160px;
+  background:#f6f7f8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:68px;
+}
+.product-info{padding:12px}
+.product-name{
+  min-height:33px;
+  font-size:12px;
+}
+.brand{
+  font-size:10px;
+  color:#777;
+  margin:4px 0;
+}
+.price{
+  font-weight:bold;
+  font-size:17px;
+  margin:7px 0;
+}
+.rating{
+  color:#f4a000;
+  font-size:11px;
+}
+.add{
+  width:100%;
+  margin-top:10px;
+  border:0;
+  background:#087af1;
+  color:#fff;
+  padding:9px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+/* BENEFITS */
+.benefit-strip{
+  background:#f0f6fc;
+  padding:24px 6%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+.benefit{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+}
+.benefit-icon{
+  font-size:32px;
+  color:var(--blue);
+}
+.benefit b{
+  font-size:12px;
+  display:block;
+}
+.benefit span{
+  font-size:10px;
+}
+
+/* FOOTER */
+footer{
+  padding:27px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:11px;
+}
+.footer-logo{
+  color:var(--blue);
+  font-size:28px;
+  font-weight:900;
+}
+.footer-links{
+  display:flex;
+  gap:18px;
+}
+.thanks{
+  font-family:"Segoe Script",cursive;
+  font-size:17px;
+  transform:rotate(-4deg);
+}
+
+/* TOAST */
+.toast{
   position:fixed;
   bottom:25px;
   right:25px;
-  background:#162b55;
+  background:#073663;
   color:white;
-  padding:15px 22px;
-  border-radius:10px;
+  padding:14px 20px;
+  border-radius:8px;
   display:none;
-  box-shadow:0 5px 25px #0003;
-  z-index:30;
+  z-index:50;
 }
 
+/* MOBILE */
 @media(max-width:900px){
-
-  header{
-    flex-wrap:wrap;
-  }
-
-  .search{
-    order:3;
-    flex-basis:100%;
-  }
-
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero-box{
-    width:100%;
-    max-width:380px;
-  }
-
-  .categories{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .family{
-    flex-direction:column;
-    text-align:center;
-  }
+  .topbar{grid-template-columns:1fr 1fr;gap:7px}
+  .header-main{flex-wrap:wrap}
+  .logo{min-width:auto}
+  .search{order:3;flex-basis:100%}
+  nav{overflow-x:auto;white-space:nowrap}
+  .hero{grid-template-columns:1fr}
+  .hero-photo{min-height:330px}
+  .hero-copy{padding:40px 8%}
+  .categories{grid-template-columns:repeat(5,1fr)}
+  .products{grid-template-columns:repeat(3,1fr)}
 }
-
-@media(max-width:550px){
-
-  nav{
-    gap:15px;
-    font-size:14px;
-  }
-
-  .hero{
-    padding:45px 6%;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
+@media(max-width:600px){
+  .topbar{font-size:9px}
+  .actions{gap:8px}
+  .action{min-width:40px;font-size:9px}
+  .logo-main{font-size:34px}
+  .hero-copy h1{font-size:52px}
+  .hero-note{display:none}
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .promos{grid-template-columns:1fr}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .benefit-strip{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:20px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-  🚚 Despachos a todo Chile · Compra fácil, segura y conveniente
+<div class="topbar">
+  <div>🚚 Envío a todo Chile</div>
+  <div>💳 Paga como prefieras</div>
+  <div>🔒 Compra segura</div>
+  <div>🎧 ¿Necesitas ayuda?</div>
 </div>
 
 <header>
+  <div class="header-main">
+    <div class="logo">
+      <div class="logo-main">nu<span>box</span></div>
+      <div class="tagline">Un mundo de opciones</div>
+    </div>
 
-  <div class="logo">
-    NU<span>BOX</span>
+    <div class="search">
+      <input id="searchInput" onkeyup="searchProducts()" placeholder="¿Qué estás buscando hoy?">
+    </div>
+
+    <div class="actions">
+      <div class="action">
+        <span class="action-icon">♙</span>
+        Mi cuenta
+      </div>
+      <div class="action">
+        <span class="action-icon">♡</span>
+        Favoritos
+      </div>
+      <div class="action cart-icon">
+        <span class="count" id="cartCount">0</span>
+        <span class="action-icon">🛒</span>
+        Carrito
+      </div>
+    </div>
   </div>
 
-  <div class="search">
-    <input
-      type="text"
-      id="search"
-      placeholder="¿Qué estás buscando hoy?"
-      onkeyup="searchProducts()"
-    >
-  </div>
-
-  <div class="cart">
-    🛒 Mi carrito (<span id="cartCount">0</span>)
-  </div>
-
+  <nav>
+    <a href="#categorias">☰ &nbsp;Todas las categorías</a>
+    <a href="#productos">Hogar</a>
+    <a href="#productos">Cocina</a>
+    <a href="#productos">Moda</a>
+    <a href="#productos">Tecnología</a>
+    <a href="#productos">Bienestar</a>
+    <a href="#productos">Deporte</a>
+    <a href="#productos">Mascotas</a>
+    <a href="#productos">Niños</a>
+    <a href="#productos" class="offer">Ofertas</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#categories">Categorías</a>
-  <a href="#offers">Ofertas</a>
-  <a href="#home">Hogar</a>
-  <a href="#family">Familia</a>
-  <a href="#tech">Tecnología</a>
-  <a href="#contact">Ayuda</a>
-</nav>
+<section class="hero">
+  <div class="hero-copy">
+    <h1>nubox</h1>
+    <div class="hero-script">Un mundo de opciones</div>
 
+    <h2>Todo lo que necesitas,<br>en un solo lugar.</h2>
 
-<div class="hero">
+    <div class="hero-benefits">
+      <div><b>🚚</b>Envío a todo Chile</div>
+      <div><b>🛡</b>Compra segura</div>
+      <div><b>💳</b>Paga como prefieras</div>
+      <div><b>🎧</b>Siempre contigo</div>
+    </div>
 
-  <div class="hero-text">
-
-    <small>TODO LO QUE NECESITAS, EN UN SOLO LUGAR</small>
-
-    <h1>
-      NUBOX<br>
-      <span>Un mundo de opciones</span>
-    </h1>
-
-    <p>
-      Productos para tu hogar, tu familia y tu día a día.
-      Descubre nuevas opciones a buenos precios,
-      seleccionadas para hacer tu vida más fácil.
-    </p>
-
-    <a class="btn" href="#offers">
-      Descubrir productos
-    </a>
-
+    <button class="primary" onclick="document.getElementById('productos').scrollIntoView()">
+      Descubre Nubox &nbsp;→
+    </button>
   </div>
 
-  <div class="hero-box">
-    🏠
+  <div class="hero-photo">
+    <div class="hero-note">
+      Más momentos para lo que realmente importa ♡
+    </div>
   </div>
-
-</div>
-
-
-<section id="categories">
-
-  <div class="section-title">
-    <h2>Encuentra lo que necesitas</h2>
-    <p>Un mundo de categorías para todos</p>
-  </div>
-
-  <div class="categories">
-
-    <div class="category">
-      <div class="icon">🏠</div>
-      <strong>Hogar</strong>
-    </div>
-
-    <div class="category">
-      <div class="icon">🍳</div>
-      <strong>Cocina</strong>
-    </div>
-
-    <div class="category">
-      <div class="icon">🧸</div>
-      <strong>Niños</strong>
-    </div>
-
-    <div class="category">
-      <div class="icon">💆</div>
-      <strong>Bienestar</strong>
-    </div>
-
-    <div class="category">
-      <div class="icon">🐶</div>
-      <strong>Mascotas</strong>
-    </div>
-
-    <div class="category">
-      <div class="icon">💻</div>
-      <strong>Tecnología</strong>
-    </div>
-
-  </div>
-
 </section>
 
+<main class="wrap">
 
-<section id="offers">
+  <section class="categories" id="categorias">
+    <div class="cat"><div class="cat-circle">🪴</div>Hogar</div>
+    <div class="cat"><div class="cat-circle">🍳</div>Cocina</div>
+    <div class="cat"><div class="cat-circle">👕</div>Moda</div>
+    <div class="cat"><div class="cat-circle">🎧</div>Tecnología</div>
+    <div class="cat"><div class="cat-circle">🏋️</div>Deporte</div>
+    <div class="cat"><div class="cat-circle">🧴</div>Bienestar</div>
+    <div class="cat"><div class="cat-circle">🐶</div>Mascotas</div>
+    <div class="cat"><div class="cat-circle">🧸</div>Niños</div>
+    <div class="cat"><div class="cat-circle">%</div>Ofertas</div>
+  </section>
 
-  <div class="section-title">
-    <h2>Elegidos para ti</h2>
-    <p>Productos útiles para distintos momentos de tu día</p>
+  <section class="promos">
+    <div class="promo home-promo">
+      <div class="promo-content">
+        <h3>Hogar</h3>
+        <p>que inspira</p>
+        <button>Ver más →</button>
+      </div>
+    </div>
+
+    <div class="promo fashion-promo">
+      <div class="promo-content">
+        <h3>Moda</h3>
+        <p>para tu día a día</p>
+        <button>Ver más →</button>
+      </div>
+    </div>
+
+    <div class="promo wellness-promo">
+      <div class="promo-content">
+        <h3>Bienestar</h3>
+        <p>en cada paso</p>
+        <button>Ver más →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="title-row">
+      <h2>Productos destacados</h2>
+      <a href="#">Ver todos →</a>
+    </div>
+
+    <div class="products" id="productGrid">
+
+      <article class="product" data-search="freidora aire cocina hogar">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">🍟</div>
+        <div class="product-info">
+          <div class="product-name">Freidora de aire 5,5L</div>
+          <div class="brand">Nubox Home</div>
+          <div class="price">$69.990</div>
+          <div class="rating">★★★★★ (124)</div>
+          <button class="add" onclick="addCart('Freidora de aire')">Agregar</button>
+        </div>
+      </article>
+
+      <article class="product" data-search="zapatillas deportivas moda deporte">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">👟</div>
+        <div class="product-info">
+          <div class="product-name">Zapatillas deportivas</div>
+          <div class="brand">Urban</div>
+          <div class="price">$34.990</div>
+          <div class="rating">★★★★★ (89)</div>
+          <button class="add" onclick="addCart('Zapatillas')">Agregar</button>
+        </div>
+      </article>
+
+      <article class="product" data-search="mochila urbana moda">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">🎒</div>
+        <div class="product-info">
+          <div class="product-name">Mochila urbana</div>
+          <div class="brand">Nubox</div>
+          <div class="price">$24.990</div>
+          <div class="rating">★★★★★ (57)</div>
+          <button class="add" onclick="addCart('Mochila')">Agregar</button>
+        </div>
+      </article>
+
+      <article class="product" data-search="termo termico cocina hogar">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">🥤</div>
+        <div class="product-info">
+          <div class="product-name">Termo térmico 1L</div>
+          <div class="brand">Nubox</div>
+          <div class="price">$16.990</div>
+          <div class="rating">★★★★★ (112)</div>
+          <button class="add" onclick="addCart('Termo térmico')">Agregar</button>
+        </div>
+      </article>
+
+      <article class="product" data-search="cama mascotas perro gato">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">🐕</div>
+        <div class="product-info">
+          <div class="product-name">Cama para mascotas</div>
+          <div class="brand">Nubox Pets</div>
+          <div class="price">$29.990</div>
+          <div class="rating">★★★★★ (73)</div>
+          <button class="add" onclick="addCart('Cama para mascotas')">Agregar</button>
+        </div>
+      </article>
+
+      <article class="product" data-search="bloques didacticos niños juguetes">
+        <div class="heart" onclick="favorite(this)">♡</div>
+        <div class="product-image">🧱</div>
+        <div class="product-info">
+          <div class="product-name">Set de bloques didácticos</div>
+          <div class="brand">Nubox Kids</div>
+          <div class="price">$18.990</div>
+          <div class="rating">★★★★★ (96)</div>
+          <button class="add" onclick="addCart('Bloques didácticos')">Agregar</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<section class="benefit-strip">
+  <div class="benefit">
+    <div class="benefit-icon">♧</div>
+    <div><b>Gran variedad de productos</b><span>para toda la familia</span></div>
   </div>
 
-  <div class="products" id="products">
-
-    <div class="product" data-name="freidora cocina hogar">
-
-      <div class="product-image">
-        🍟
-      </div>
-
-      <div class="product-info">
-
-        <small>Cocina</small>
-
-        <h3>Freidora de aire familiar</h3>
-
-        <span class="price">$49.990</span>
-        <span class="old-price">$69.990</span>
-
-        <button class="buy" onclick="addCart('Freidora de aire')">
-          Agregar al carrito
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product" data-name="organizador hogar">
-
-      <div class="product-image">
-        🧺
-      </div>
-
-      <div class="product-info">
-
-        <small>Hogar</small>
-
-        <h3>Organizador multifuncional</h3>
-
-        <span class="price">$19.990</span>
-
-        <button class="buy" onclick="addCart('Organizador')">
-          Agregar al carrito
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product" data-name="audifonos tecnologia">
-
-      <div class="product-image">
-        🎧
-      </div>
-
-      <div class="product-info">
-
-        <small>Tecnología</small>
-
-        <h3>Audífonos inalámbricos</h3>
-
-        <span class="price">$24.990</span>
-        <span class="old-price">$34.990</span>
-
-        <button class="buy" onclick="addCart('Audífonos')">
-          Agregar al carrito
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product" data-name="mascotas cama perro gato">
-
-      <div class="product-image">
-        🐾
-      </div>
-
-      <div class="product-info">
-
-        <small>Mascotas</small>
-
-        <h3>Cama confort para mascotas</h3>
-
-        <span class="price">$21.990</span>
-
-        <button class="buy" onclick="addCart('Cama para mascotas')">
-          Agregar al carrito
-        </button>
-
-      </div>
-
-    </div>
-
+  <div class="benefit">
+    <div class="benefit-icon">♢</div>
+    <div><b>Marcas confiables</b><span>y precios justos</span></div>
   </div>
 
+  <div class="benefit">
+    <div class="benefit-icon">▣</div>
+    <div><b>Un mundo de opciones</b><span>en un solo lugar</span></div>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">☺</div>
+    <div><b>Tu satisfacción</b><span>es nuestra prioridad</span></div>
+  </div>
 </section>
 
-
-<div class="family" id="family">
-
+<footer>
   <div>
-
-    <h2>Hay algo para cada uno</h2>
-
-    <p>
-      En NUBOX queremos reunir productos útiles, entretenidos
-      y accesibles para todos los integrantes de la familia.
-      Porque encontrar lo que buscas debería ser simple.
-    </p>
-
+    <div class="footer-logo">nubox</div>
+    <div>Un mundo de opciones</div>
   </div>
 
-  <div class="family-icon">
-    👨‍👩‍👧‍👦
+  <div class="footer-links">
+    <a href="#">Sobre nosotros</a>
+    <a href="#">Preguntas frecuentes</a>
+    <a href="#">Términos y condiciones</a>
+    <a href="#">Contacto</a>
   </div>
 
-</div>
-
-
-<footer id="contact">
-
-  <div class="brand">
-    NUBOX
+  <div class="thanks">
+    Gracias por ser parte<br>de este mundo ♡
   </div>
-
-  <p>Un mundo de opciones</p>
-
-  <br>
-
-  <small>
-    Tienda online · Chile
-  </small>
-
 </footer>
 
-
-<div id="notice">
-  Producto agregado ✓
-</div>
-
+<div class="toast" id="toast"></div>
 
 <script>
-
 let cart = 0;
 
-function addCart(product){
-
+function addCart(name){
   cart++;
+  document.getElementById("cartCount").textContent = cart;
 
-  document.getElementById("cartCount").innerText = cart;
+  const toast = document.getElementById("toast");
+  toast.textContent = name + " agregado al carrito ✓";
+  toast.style.display = "block";
 
-  const notice = document.getElementById("notice");
-
-  notice.innerText = product + " agregado al carrito ✓";
-
-  notice.style.display = "block";
-
-  setTimeout(function(){
-    notice.style.display = "none";
-  },2000);
-
+  setTimeout(()=>{
+    toast.style.display = "none";
+  },1800);
 }
 
+function favorite(el){
+  el.textContent = el.textContent === "♡" ? "♥" : "♡";
+  el.style.color = el.textContent === "♥" ? "#087af1" : "#17212b";
+}
 
 function searchProducts(){
+  const term = document.getElementById("searchInput").value.toLowerCase();
 
-  const search =
-    document.getElementById("search")
-    .value
-    .toLowerCase();
-
-  const products =
-    document.querySelectorAll(".product");
-
-  products.forEach(function(product){
-
-    const name =
-      product
-      .getAttribute("data-name")
-      .toLowerCase();
-
-    if(name.includes(search)){
-      product.style.display = "block";
-    }else{
-      product.style.display = "none";
-    }
-
+  document.querySelectorAll(".product").forEach(product=>{
+    const words = product.dataset.search.toLowerCase();
+    product.style.display = words.includes(term) ? "block" : "none";
   });
-
 }
-
 </script>
 
 </body>
