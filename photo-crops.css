@@ -1,0 +1,11 @@
+/* Recursos en alta resolución aprobados para la maqueta. */
+.photo{background-image:url('./assets/products.png');background-size:300% 200%;background-repeat:no-repeat;background-color:#f5f5f3}
+.p0{background-position:0 0}.p1{background-position:50% 0}.p2{background-position:100% 0}.p3{background-position:0 100%}.p4{background-position:50% 100%}.p5{background-position:100% 100%}
+.hero{background:#eee4d6 url('./assets/hero.png') center/cover no-repeat;overflow:hidden}.hero-inner{min-height:440px}.hero-copy{width:40%;padding-left:2%;background:none}.hero-note{display:none}.hero-copy .handwritten{white-space:normal;font-size:25px}.hero-copy h1{font-size:23px}
+.brand strong{display:block;width:174px;height:53px;background:url('./assets/logo.svg') center/contain no-repeat;font-size:0;color:transparent;letter-spacing:0}.brand strong span{color:transparent}.hero-brand strong{width:255px;height:78px}.footer-main .brand strong{width:112px;height:35px}.brand small{margin-left:4px}
+.category-photo{right:-16px;bottom:0;width:150px;height:150px}.category:after{background:linear-gradient(90deg,#f2eee9 5%,#f2eee9e8 30%,#f2eee900 85%)}.offer-category:after{background:linear-gradient(90deg,#e6f1ff,#e6f1ff00)}
+.product .photo{aspect-ratio:1}.photo{image-rendering:auto}
+@media(min-width:1600px){.hero{background-size:cover}.hero-inner{min-height:480px}}
+@media(max-width:1100px){.hero-inner{min-height:365px}.hero-copy{padding-left:0}.hero-brand strong{width:210px;height:64px}.brand strong{width:145px;height:44px}.hero-copy .handwritten{font-size:21px}.hero-copy h1{font-size:21px}.category-photo{right:-45px}}
+@media(max-width:700px){.hero{position:relative;background:#eee4d6}.hero:before{content:'';position:absolute;inset:0 0 auto;height:260px;background:url('./assets/hero.png') 85% center/auto 100% no-repeat}.hero-inner{width:100%;min-height:440px}.hero-copy{width:100%;padding:22px 24px 24px;background:linear-gradient(0deg,#eee4d6 94%,#eee4d600)}.hero-brand strong{width:145px;height:44px}.brand strong{width:130px;height:40px}.hero-copy .handwritten{font-size:14px}.hero-copy h1{font-size:16px}.category-photo{right:-24px;width:140px;height:140px}.footer-main .brand strong{margin:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
